@@ -201,7 +201,7 @@ Five open multilingual models run locally (@tab-spaces): #mo[bge-m3] (`BAAI/bge-
   caption: cap[Which vectors were at hand for which space][Which vectors were at hand for each space. For the two commercial spaces there are no query vectors and therefore no reference for staying. For #mo[Gemini-001] there are no vectors of the public Wikipedia anchors either, which is what a provider publishing anchors would supply.],
 ) <fig-available>
 
-== Testbeds
+== Testbeds <sec-testbeds>
 
 #figure(
   ruled(
@@ -630,6 +630,10 @@ The specification with both #ab("json")[JSON] Schemas, the code of all experimen
 #heading(numbering: none)[Funding and competing interests]
 
 This work received no funding. The author declares no competing interests.
+
+#heading(numbering: none)[Use of AI tools]
+
+The author used AI assistants to help write and review code for the experiments and figures, to check references, and to edit the text for clarity. The study design, the interpretation of the results and all claims are the author's; every number in the paper is generated from the released result files, and the author takes full responsibility for the content. A language model (Gemma 4, 12B, run locally) was also used as part of the method, to write the known-item questions of the #tb[Archive] testbed (@sec-testbeds).
 
 #{
   set text(9.5pt, region: "US")
