@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publish the Anchors</title>
+<meta name="description" content="Companion to the paper Publish the Anchors: explore how much retrieval quality survives when a vector index is translated from one embedding model into another.">
+<meta name="author" content="Egbal Waldmann">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/dist/plot.umd.min.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Companion to the paper</p>
+    <h1>Publish the Anchors</h1>
+    <p class="subtitle">A Minimal Interoperability Standard for Text Embedding Spaces, with a Cross-Vendor German Migration Study</p>
+    <p class="byline">Egbal Waldmann · November 2026 · Preprint</p>
+    <p class="message" id="message">A translated index keeps 88–96% of a full re-embed and is never better than the old model.</p>
+    <nav class="links" aria-label="Paper, code and data">
+      <a class="button" href="https://github.com/egbalwaldmann/embedding-anchors/blob/main/paper/publish-the-anchors.pdf">Paper (PDF)</a>
+      <a class="button" href="https://github.com/egbalwaldmann/embedding-anchors">Code and specification</a>
+      <a class="button" href="https://huggingface.co/datasets/egbalwaldmann/embedding-anchors">Anchor corpus</a>
+      <a class="button" href="https://doi.org/10.5281/zenodo.24484736">DOI 10.5281/zenodo.24484736</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+<section aria-labelledby="h-idea">
+  <h2 id="h-idea">The idea</h2>
+  <p>A vector index dies with the model that wrote it. If every provider published the vectors of one small public collection of texts, the <em>anchor corpus</em>, anyone could fit a map between two spaces, carry an index to another model and measure what that costs. The standard does not require models to be compatible. It makes compatibility measurable.</p>
+  <dl class="terms">
+    <div><dt><span class="swatch old" aria-hidden="true"></span>Old model</dt><dd>The model that wrote the stored index. Its space is drawn in orange.</dd></div>
+    <div><dt><span class="swatch new" aria-hidden="true"></span>New model</dt><dd>The model one migrates to. Its space is drawn in blue.</dd></div>
+    <div><dt>Index translation</dt><dd>The stored document vectors are mapped once into the new space and searched with native queries of the new model.</dd></div>
+    <div><dt>Query translation</dt><dd>The old index stays, and each query of the new model is mapped into the old space.</dd></div>
+    <div><dt>Full re-embed</dt><dd>Documents and queries embedded again with the new model. Every percentage on this page is nDCG@10 relative to it.</dd></div>
+    <div><dt>Stay</dt><dd>Keep documents and queries in the old model's space.</dd></div>
+  </dl>
+  <p class="note" id="data-note">The study covers five open multilingual models, two commercial spaces as sources, two German Wikipedia testbeds with human queries (Wiki-de, MIRACL-de) and a private German archive (Archive). For the Archive only aggregate numbers per pair of spaces are shown; no text from it is released.</p>
+</section>
+
+<section aria-labelledby="h-curve">
+  <h2 id="h-curve">1. How many anchor pairs</h2>
+  <p>A few thousand pairs carry most of what the orthogonal map delivers; how much that is depends on the collection. Below 1,000 pairs the result depends strongly on the pair. Pick a pair of spaces and compare it with the range of all pairs of open models and with keeping the old model.</p>
+  <form class="controls" id="c-curve" aria-label="Settings for the anchor curve">
+    <label>Testbed <select name="bed"></select></label>
+    <label>Old model (source) <select name="source"></select></label>
+    <label>New model (target) <select name="target"></select></label>
+    <label>Map <select name="adapter"></select></label>
+    <label>Anchors <select name="anchors"></select></label>
+    <fieldset><legend>Mode</legend>
+      <label class="radio"><input type="radio" name="mode" value="index" checked> Index translation</label>
+      <label class="radio"><input type="radio" name="mode" value="query"> Query translation</label>
+    </fieldset>
+  </form>
+  <figure>
+    <div class="chart" id="f-curve"></div>
+    <div class="legend" id="l-curve"></div>
+    <figcaption id="cap-curve"></figcaption>
+    <details><summary>Show as table</summary><div class="table" id="t-curve"></div></details>
+  </figure>
+</section>
+
+<section aria-labelledby="h-matrix">
+  <h2 id="h-matrix">2. Every pair of spaces</h2>
+  <p>The pairs differ, most of all on the Archive. The family of the two models matters: between the three XLM-R encoders several points more survive than across families. Each cell is the new model's nDCG@10 with the translated index, in per cent of a full re-embed.</p>
+  <form class="controls" id="c-matrix" aria-label="Settings for the pair matrix">
+    <label>Testbed <select name="bed"></select></label>
+    <label>Map <select name="adapter"></select></label>
+    <label>Anchor pairs <select name="k"></select></label>
+    <fieldset><legend>Mode</legend>
+      <label class="radio"><input type="radio" name="mode" value="index" checked> Index translation</label>
+      <label class="radio"><input type="radio" name="mode" value="query"> Query translation</label>
+    </fieldset>
+  </form>
+  <figure>
+    <div class="chart" id="f-matrix"></div>
+    <figcaption id="cap-matrix"></figcaption>
+    <details><summary>Show as table</summary><div class="table" id="t-matrix"></div></details>
+  </figure>
+</section>
+
+<section aria-labelledby="h-stay">
+  <h2 id="h-stay">3. Against keeping the old model</h2>
+  <p>A translated index is not better than the old model. A bridge is compared with staying on the old model per query: the queries are resampled 2,000 times, and a difference whose 95% interval includes zero is called a tie. The quality of a translated index is bounded by the old model, whichever space it is translated into.</p>
+  <form class="controls" id="c-stay" aria-label="Settings for the comparison with the old model">
+    <label>Testbed <select name="bed"></select></label>
+    <label>Map <select name="adapter"></select></label>
+    <fieldset><legend>Mode</legend>
+      <label class="radio"><input type="radio" name="mode" value="index" checked> Index translation</label>
+      <label class="radio"><input type="radio" name="mode" value="query"> Query translation</label>
+    </fieldset>
+  </form>
+  <figure>
+    <div class="chart" id="f-stay"></div>
+    <div class="legend" id="l-stay"></div>
+    <figcaption id="cap-stay"></figcaption>
+    <details><summary>Show as table</summary><div class="table" id="t-stay"></div></details>
+  </figure>
+</section>
+
+<section aria-labelledby="h-mixed">
+  <h2 id="h-mixed">4. A partly migrated index</h2>
+  <p>A migration that replaces vectors in place passes through a state in which translated and re-embedded vectors share one index. Such a mixed index is worse than its composition suggests: a translated vector's similarity to a native query is damped, so a native passage is ranked ahead of a translated one whether or not it is the more relevant. Re-embedding a translated index in place makes retrieval worse before it makes it better.</p>
+  <form class="controls" id="c-mixed" aria-label="Settings for the mixed index">
+    <label>Testbed <select name="bed"></select></label>
+    <fieldset><legend>Show</legend>
+      <label class="radio"><input type="radio" name="measure" value="rel" checked> Retrieval quality</label>
+      <label class="radio"><input type="radio" name="measure" value="translatedInTop10"> Translated passages in the top ten</label>
+    </fieldset>
+  </form>
+  <figure>
+    <div class="chart" id="f-mixed"></div>
+    <div class="legend" id="l-mixed"></div>
+    <figcaption id="cap-mixed"></figcaption>
+    <details><summary>Show as table</summary><div class="table" id="t-mixed"></div></details>
+  </figure>
+</section>
+
+<section aria-labelledby="h-predict">
+  <h2 id="h-predict">5. What the anchors predict</h2>
+  <p>Three similarity measures compare the two anchor matrices of a pair of spaces without fitting a map. Within one testbed they correlate with the outcome, but the same similarity value goes with a loss of a few per cent on Wiki-de and of more than a tenth on the Archive. A map that fails on held-out anchors will not retrieve; a map that passes has shown very little. That is why the Adapter Manifest requires a measurement.</p>
+  <form class="controls" id="c-predict" aria-label="Settings for the prediction scatter">
+    <label>Measure <select name="measure">
+      <option value="knn">Overlap of the ten nearest anchors</option>
+      <option value="rsa">RSA (Spearman)</option>
+      <option value="cka">Linear CKA</option>
+      <option value="acc1">Held-out anchors nearest to their counterpart</option>
+    </select></label>
+    <fieldset><legend>Mode</legend>
+      <label class="radio"><input type="radio" name="mode" value="index" checked> Index translation</label>
+      <label class="radio"><input type="radio" name="mode" value="query"> Query translation</label>
+    </fieldset>
+  </form>
+  <figure>
+    <div class="chart" id="f-predict"></div>
+    <div class="legend" id="l-predict"></div>
+    <figcaption id="cap-predict"></figcaption>
+    <details><summary>Show as table</summary><div class="table" id="t-predict"></div></details>
+  </figure>
+</section>
+
+<section aria-labelledby="h-hybrid">
+  <h2 id="h-hybrid">6. Hybrid search with BM25</h2>
+  <p>When the old model is gone, the alternative to a translated index is not an empty result list but lexical search, so BM25 is the bar a bridge has to clear. Hybrid runs fuse its ranking with the dense one by reciprocal rank fusion, with equal weights or with a weight tuned on the other half of the queries. Translated vectors add to lexical search even where they are weaker than it.</p>
+  <form class="controls" id="c-hybrid" aria-label="Settings for hybrid search">
+    <label>Testbed <select name="bed"></select></label>
+  </form>
+  <figure>
+    <div class="chart" id="f-hybrid"></div>
+    <div class="legend" id="l-hybrid"></div>
+    <figcaption id="cap-hybrid"></figcaption>
+    <details><summary>Show as table</summary><div class="table" id="t-hybrid"></div></details>
+  </figure>
+</section>
+
+<section aria-labelledby="h-cite">
+  <h2 id="h-cite">Cite</h2>
+  <p>If you use the specification, the code or the anchor release, please cite the paper.</p>
+  <pre class="bibtex" id="bibtex" tabindex="0">@misc{waldmann2026anchors,
+  author = {Waldmann, Egbal},
+  title  = {Publish the Anchors: A Minimal Interoperability Standard for Text Embedding Spaces, with a Cross-Vendor German Migration Study},
+  year   = {2026},
+  doi    = {10.5281/zenodo.24484736},
+  note   = {Preprint}
+}</pre>
+  <button type="button" class="button" id="copy-bibtex">Copy BibTeX</button>
+  <span class="status" id="copy-status" role="status"></span>
+</section>
+
+</main>
+
+<footer class="wrap footer">
+  <p>Every number on this page comes from the result files in <code>results/</code> of the repository, through <code>experiments/site_data.py</code>, the same code that writes the numbers of the paper. Code under the MIT licence.</p>
+</footer>
+
+<noscript><p class="wrap">The interactive figures need JavaScript. The paper (PDF) contains every figure and table.</p></noscript>
+</body>
+</html>

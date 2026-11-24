@@ -1,0 +1,15 @@
+{"testbed": "wiki-de", "anchors": "anchors", "a": "bge-m3", "b": "me5-large", "rsa": 0.615777226625588, "cka": 0.8053240776062012, "knn": 0.52025}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "bge-m3", "b": "arctic-l-v2", "rsa": 0.6470388082536598, "cka": 0.8371354341506958, "knn": 0.5696}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "bge-m3", "b": "qwen3-0.6b", "rsa": 0.4952445549666224, "cka": 0.7136209011077881, "knn": 0.44355}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "bge-m3", "b": "embeddinggemma-2", "rsa": 0.46881444493668883, "cka": 0.75478196144104, "knn": 0.4772}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "bge-m3", "b": "cohere-v3", "rsa": 0.6256074097221451, "cka": 0.8230688571929932, "knn": 0.55625}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "me5-large", "b": "arctic-l-v2", "rsa": 0.5552992340160069, "cka": 0.8073838353157043, "knn": 0.5403}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "me5-large", "b": "qwen3-0.6b", "rsa": 0.4601049813765188, "cka": 0.6872342228889465, "knn": 0.41975}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "me5-large", "b": "embeddinggemma-2", "rsa": 0.43420306410856585, "cka": 0.7509840726852417, "knn": 0.47875}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "me5-large", "b": "cohere-v3", "rsa": 0.7852444172808106, "cka": 0.9593934416770935, "knn": 0.7111000000000002}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "arctic-l-v2", "b": "qwen3-0.6b", "rsa": 0.5841179616228362, "cka": 0.7208353281021118, "knn": 0.4705}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "arctic-l-v2", "b": "embeddinggemma-2", "rsa": 0.5724568544695541, "cka": 0.7506890892982483, "knn": 0.50175}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "arctic-l-v2", "b": "cohere-v3", "rsa": 0.7151612086475216, "cka": 0.8281040191650391, "knn": 0.59575}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "qwen3-0.6b", "b": "embeddinggemma-2", "rsa": 0.5125089836752686, "cka": 0.7173451781272888, "knn": 0.4384}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "qwen3-0.6b", "b": "cohere-v3", "rsa": 0.6040327723217045, "cka": 0.7155657410621643, "knn": 0.464}
+{"testbed": "wiki-de", "anchors": "anchors", "a": "embeddinggemma-2", "b": "cohere-v3", "rsa": 0.5391693807544516, "cka": 0.770732581615448, "knn": 0.51535}

@@ -1,0 +1,7 @@
+.venv/
+data/
+private
+__pycache__/
+*.npy
+*.npz
+.DS_Store

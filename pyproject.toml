@@ -1,0 +1,18 @@
+[project]
+name = "embedding-anchors"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "bm25s>=0.3.16",
+    "datasets>=5.2.0",
+    "huggingface-hub>=2.4.0",
+    "jsonschema>=4.26.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.5",
+    "pyarrow>=26.0.1",
+    "pystemmer>=3.1.0",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.18.1",
+    "sentence-transformers[image]>=6.3.0",
+    "torch>=2.15.0",
+]

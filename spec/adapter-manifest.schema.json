@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egbalwaldmann/embedding-anchors/spec/adapter-manifest.schema.json",
+  "title": "Embedding Adapter Manifest",
+  "description": "Describes a map that reads vectors of one embedding space and writes vectors of another, how it was fitted and how well it was measured to work. An adapter without a measurement is not conformant.",
+  "type": "object",
+  "required": ["spec_version", "source_space", "target_space", "map", "fit", "evaluation"],
+  "additionalProperties": false,
+  "properties": {
+    "spec_version": { "const": "0.1" },
+    "source_space": { "type": "string", "description": "space_id the adapter reads." },
+    "target_space": { "type": "string", "description": "space_id the adapter writes." },
+    "map": {
+      "type": "object",
+      "required": ["type", "weights_url", "weights_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "enum": ["orthogonal", "affine", "low-rank-affine", "mlp", "other"] },
+        "weights_url": { "type": "string", "format": "uri" },
+        "weights_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "format": { "enum": ["npz", "safetensors", "onnx"] },
+        "centred": { "type": "boolean", "description": "Whether source and target vectors were centred on the means of the fitting pairs. The means are then part of the weights." },
+        "output_normalized": { "type": "boolean" }
+      }
+    },
+    "fit": {
+      "type": "object",
+      "required": ["corpus_id", "corpus_sha256", "pairs"],
+      "additionalProperties": false,
+      "properties": {
+        "corpus_id": { "type": "string", "description": "Anchor corpus the pairs were taken from, or 'private' for in-domain pairs." },
+        "corpus_sha256": { "type": "string" },
+        "pairs": { "type": "integer", "minimum": 1 },
+        "source_role": { "type": "string" },
+        "target_role": { "type": "string" },
+        "languages": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evaluation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["benchmark", "mode", "metric", "bridged"],
+        "additionalProperties": false,
+        "allOf": [
+          { "if": { "properties": { "mode": { "const": "index-translation" } } }, "then": { "required": ["native_target"] } },
+          { "if": { "properties": { "mode": { "const": "query-translation" } } }, "then": { "required": ["native_source"] } }
+        ],
+        "properties": {
+          "benchmark": { "type": "string" },
+          "language": { "type": "string" },
+          "mode": {
+            "enum": ["index-translation", "query-translation"],
+            "description": "index-translation: stored vectors of the source space are mapped and searched with native queries of the target space. query-translation: queries embedded in the source space are mapped and searched against an index stored in the target space."
+          },
+          "metric": { "type": "string", "description": "e.g. nDCG@10, Recall@10." },
+          "bridged": { "type": "number" },
+          "native_target": { "type": "number", "description": "Same metric with documents and queries both embedded in the target space. Required for index translation, where it is the value of a full re-embed." },
+          "native_source": { "type": "number", "description": "Same metric with documents and queries both embedded in the source space. Required for query translation, where it is the value of a full re-embed." }
+        }
+      }
+    },
+    "license": { "type": "string" },
+    "created": { "type": "string", "format": "date" },
+    "author": { "type": "string" }
+  }
+}

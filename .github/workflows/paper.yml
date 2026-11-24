@@ -1,0 +1,32 @@
+# Rebuilds every number, table and figure of the paper from the result files and checks that nothing changed,
+# then compiles the PDF. No model is run: the result files are the input.
+name: paper
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.4.0
+      - uses: typst-community/setup-typst@v5
+        with:
+          typst-version: 0.15.1
+      - name: Numbers, tables and figures from the result files
+        # Only what report.py needs, at the versions of uv.lock, so the job does not install the models' stack.
+        run: uv run --no-project --python 3.12 --with numpy==2.5.5 --with scipy==1.18.1 --with matplotlib==3.11.2 python experiments/report.py
+      - name: The numbers in the paper match the result files
+        run: git diff --exit-code paper/generated.typ
+      - name: Figures unchanged
+        run: git diff --stat --exit-code paper/fig || echo "::warning::figures differ from the committed ones (fonts or library versions)"
+      - name: PDF, accessible (PDF/UA-1) and archival (PDF/A-2a)
+        run: typst compile --root . --pdf-standard ua-1 --pdf-standard a-2a paper/main.typ paper/publish-the-anchors.pdf
+      - uses: actions/upload-artifact@v7
+        with:
+          name: publish-the-anchors
+          path: paper/publish-the-anchors.pdf

@@ -1,0 +1,220 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "equivalentProperty": "cr:equivalentProperty",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "Embedding Anchors v0.1",
+  "description": "Public anchor passages from German and English Wikipedia and the vectors that five open embedding models assign to them, with an Embedding Space Card per space and one worked adapter. Paired vectors let anyone fit and measure a map between two spaces.",
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "url": "https://huggingface.co/datasets/egbalwaldmann/embedding-anchors",
+  "version": "0.1.0",
+  "datePublished": "2026-11-23",
+  "inLanguage": [
+    "de",
+    "en"
+  ],
+  "keywords": [
+    "text embeddings",
+    "vector search",
+    "model migration",
+    "interoperability",
+    "retrieval"
+  ],
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Egbal Waldmann",
+    "url": "https://orcid.org/0000-0003-2958-5121"
+  },
+  "citeAs": "@misc{waldmann2026anchors, author = {Waldmann, Egbal}, title = {Publish the Anchors: A Minimal Interoperability Standard for Text Embedding Spaces, with a Cross-Vendor German Migration Study}, year = {2026}, doi = {10.5281/zenodo.24484736}}",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "repo",
+      "name": "repo",
+      "description": "The dataset repository on the Hugging Face Hub.",
+      "contentUrl": "https://huggingface.co/datasets/egbalwaldmann/embedding-anchors",
+      "encodingFormat": "git+https",
+      "sha256": "main"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "corpus-de",
+      "name": "corpus-de",
+      "description": "German anchor passages, one JSON object per line.",
+      "contentUrl": "https://huggingface.co/datasets/egbalwaldmann/embedding-anchors/resolve/main/corpus/anchors-v0.1.de.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "1c41c26a3fd454b99f8ed4f894528055997a4ae4fa0b127d569cd09e2b6f08af"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "corpus-en",
+      "name": "corpus-en",
+      "description": "English anchor passages, one JSON object per line.",
+      "contentUrl": "https://huggingface.co/datasets/egbalwaldmann/embedding-anchors/resolve/main/corpus/anchors-v0.1.en.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "6a8435db6f52339dc81669b4b4b8c1dec8108ffddd0fd9f5d58e7d34dd997c06"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "vectors",
+      "name": "vectors",
+      "description": "Document-role vectors per space and language, float32, unit length, NumPy format.",
+      "containedIn": {
+        "@id": "repo"
+      },
+      "encodingFormat": "application/x-npy",
+      "includes": "spaces/*/document.*.npy"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "cards",
+      "name": "cards",
+      "description": "Embedding Space Card of each space.",
+      "containedIn": {
+        "@id": "repo"
+      },
+      "encodingFormat": "application/json",
+      "includes": "spaces/*/card.json"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "adapters",
+      "name": "adapters",
+      "description": "A worked orthogonal adapter and its Adapter Manifest.",
+      "containedIn": {
+        "@id": "repo"
+      },
+      "encodingFormat": "application/octet-stream",
+      "includes": "adapters/*"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "anchors_de",
+      "name": "anchors_de",
+      "description": "The German anchor corpus. Row i of every space's document.de.npy is the vector of line i.",
+      "key": {
+        "@id": "anchors_de/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "anchors_de/id",
+          "name": "id",
+          "description": "Passage identifier: dump, language, Wikipedia page id and passage number.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "corpus-de"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "anchors_de/text",
+          "name": "text",
+          "description": "Passage text as embedded, after the model's document prefix.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "corpus-de"
+            },
+            "extract": {
+              "column": "text"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "anchors_en",
+      "name": "anchors_en",
+      "description": "The English anchor corpus. Row i of every space's document.en.npy is the vector of line i.",
+      "key": {
+        "@id": "anchors_en/id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "anchors_en/id",
+          "name": "id",
+          "description": "Passage identifier: dump, language, Wikipedia page id and passage number.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "corpus-en"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "anchors_en/text",
+          "name": "text",
+          "description": "Passage text as embedded, after the model's document prefix.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "corpus-en"
+            },
+            "extract": {
+              "column": "text"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

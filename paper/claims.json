@@ -1,0 +1,127 @@
+{
+  "title": "Publish the Anchors: A Minimal Interoperability Standard for Text Embedding Spaces, with a Cross-Vendor German Migration Study",
+  "author": "Egbal Waldmann",
+  "orcid": "https://orcid.org/0000-0003-2958-5121",
+  "doi": "10.5281/zenodo.24484736",
+  "code": "https://github.com/egbalwaldmann/embedding-anchors",
+  "anchors": "https://huggingface.co/datasets/egbalwaldmann/embedding-anchors",
+  "measure": "nDCG@10; 'percent of full re-embed' is nDCG@10 relative to embedding documents and queries with the new model",
+  "testbeds": {
+    "Wiki-de": "German Wikipedia, 305 human queries",
+    "MIRACL-de": "German MIRACL with passage judgements, 305 queries",
+    "Archive": "a private archive of German documents, 300 generated questions; only aggregates are released"
+  },
+  "claims": [
+    {
+      "id": "translation-keeps",
+      "statement": "With an orthogonal map fitted on all in-domain anchor pairs, a translated index keeps this share of the nDCG@10 of a full re-embed.",
+      "values": {
+        "Wiki-de": 95.7,
+        "MIRACL-de": 95.1,
+        "Archive": 88.0
+      },
+      "unit": "percent of full re-embed",
+      "section": "sec-open"
+    },
+    {
+      "id": "query-translation-keeps",
+      "statement": "Translating queries into the old space instead keeps this share.",
+      "values": {
+        "Wiki-de": 94.7,
+        "MIRACL-de": 93.3,
+        "Archive": 85.1
+      },
+      "unit": "percent of full re-embed",
+      "section": "sec-open"
+    },
+    {
+      "id": "never-beats-old-model",
+      "statement": "Of 2,920 measured combinations, none is better than keeping the old model beyond the noise of the query sample.",
+      "values": {
+        "combinations": 2920,
+        "better_beyond_noise": 0
+      },
+      "unit": "count",
+      "section": "sec-open"
+    },
+    {
+      "id": "old-model-is-ceiling",
+      "statement": "A translated index inherits the limits of the model that wrote it: from a much weaker old model it stays below that model.",
+      "values": {
+        "combinations": 540,
+        "worse_beyond_noise": 508
+      },
+      "unit": "count",
+      "section": "sec-upgrade"
+    },
+    {
+      "id": "thousand-anchors",
+      "statement": "With 1,000 anchor pairs the orthogonal map keeps this share of a full re-embed.",
+      "values": {
+        "Wiki-de": 91.0,
+        "MIRACL-de": 87.9,
+        "Archive": 74.2
+      },
+      "unit": "percent of full re-embed",
+      "section": "sec-open"
+    },
+    {
+      "id": "mixed-index-worse",
+      "statement": "An index with nine tenths of its vectors translated and the rest re-embedded is worse than a fully translated one.",
+      "values": {
+        "Wiki-de": 90.0,
+        "MIRACL-de": 77.4,
+        "Archive": 71.6
+      },
+      "unit": "percent of full re-embed",
+      "section": "sec-mixed"
+    },
+    {
+      "id": "public-anchors-cost",
+      "statement": "Wikipedia anchors in place of anchors from the archive itself cost this many percentage points of a full re-embed on the Archive, pair by pair.",
+      "values": {
+        "Archive": 7.9
+      },
+      "unit": "percentage points",
+      "section": "sec-anchors"
+    },
+    {
+      "id": "query-role-not-needed",
+      "statement": "Anchors embedded in the query role change orthogonal query translation by this many points of nDCG@10 (hundredths), within or near the noise.",
+      "values": {
+        "Wiki-de": 0.1,
+        "MIRACL-de": 0.2,
+        "Archive": -0.6
+      },
+      "unit": "points of nDCG@10",
+      "section": "sec-open"
+    },
+    {
+      "id": "similarity-does-not-forecast",
+      "statement": "The rank correlation between neighbour overlap of two anchor matrices and the outcome of translation is positive within a testbed, but no measure gives the size of the loss.",
+      "values": {
+        "Wiki-de": 0.72,
+        "MIRACL-de": 0.59,
+        "Archive": 0.58
+      },
+      "unit": "Spearman rank correlation",
+      "section": "sec-predict"
+    },
+    {
+      "id": "hybrid-helps",
+      "statement": "On the Archive, a translated index fused with BM25 is above BM25 alone.",
+      "values": {
+        "bm25": 0.605,
+        "translated_alone": 0.545,
+        "fused": 0.641
+      },
+      "unit": "nDCG@10",
+      "section": "sec-hybrid"
+    }
+  ],
+  "proposal": {
+    "Embedding Space Card": "what must be identical for two vectors to be comparable",
+    "anchor corpus": "public passages whose embeddings every provider publishes for every model version",
+    "Adapter Manifest": "ties a map between two spaces to a measured retrieval result"
+  }
+}

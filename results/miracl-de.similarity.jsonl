@@ -1,0 +1,10 @@
+{"testbed": "miracl-de", "anchors": "anchors", "a": "bge-m3", "b": "me5-large", "rsa": 0.5781195302504127, "cka": 0.7777641415596008, "knn": 0.42725}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "bge-m3", "b": "arctic-l-v2", "rsa": 0.6208174819000537, "cka": 0.8207809329032898, "knn": 0.4853}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "bge-m3", "b": "qwen3-0.6b", "rsa": 0.5226156945771335, "cka": 0.690836489200592, "knn": 0.35170000000000007}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "bge-m3", "b": "embeddinggemma-2", "rsa": 0.3653486290956015, "cka": 0.7022894620895386, "knn": 0.3429}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "me5-large", "b": "arctic-l-v2", "rsa": 0.5519107599135065, "cka": 0.7893339991569519, "knn": 0.4536}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "me5-large", "b": "qwen3-0.6b", "rsa": 0.4320734991088798, "cka": 0.6632993221282959, "knn": 0.31104999999999994}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "me5-large", "b": "embeddinggemma-2", "rsa": 0.36320505129163744, "cka": 0.704084575176239, "knn": 0.34554999999999997}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "arctic-l-v2", "b": "qwen3-0.6b", "rsa": 0.57064960755722, "cka": 0.686967134475708, "knn": 0.3605}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "arctic-l-v2", "b": "embeddinggemma-2", "rsa": 0.5022653276178237, "cka": 0.7068014144897461, "knn": 0.38245}
+{"testbed": "miracl-de", "anchors": "anchors", "a": "qwen3-0.6b", "b": "embeddinggemma-2", "rsa": 0.38571575858865004, "cka": 0.6821021437644958, "knn": 0.30625}

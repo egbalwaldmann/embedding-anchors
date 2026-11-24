@@ -1,0 +1,20 @@
+{
+  "spec_version": "0.1",
+  "space_id": "google/gemini-embedding-001@001:dim=1536",
+  "model": {
+    "publisher": "Google",
+    "name": "gemini-embedding-001",
+    "revision": "001",
+    "url": "https://ai.google.dev/gemini-api/docs/embeddings"
+  },
+  "dimensions": 1536,
+  "native_dimensions": 3072,
+  "truncation": { "method": "matryoshka-prefix", "renormalized": false },
+  "similarity": "cosine",
+  "normalized": false,
+  "input": {
+    "roles": { "document": {}, "query": {} },
+    "max_tokens": 2048,
+    "overflow": "truncate"
+  }
+}

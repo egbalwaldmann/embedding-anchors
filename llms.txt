@@ -1,0 +1,30 @@
+# Publish the Anchors
+
+> A minimal interoperability standard for text embedding spaces (Embedding Space Card, public anchor corpus, Adapter Manifest), with a cross-vendor migration study on German text. A vector index translated between embedding spaces with an orthogonal map keeps 88-96% of a full re-embed and is never better than keeping the old model. Author: Egbal Waldmann. DOI: 10.5281/zenodo.24484736.
+
+The paper is written in Typst; every number in it is generated from the result files. Measures are nDCG@10, mostly relative to a full re-embed. The Archive testbed is private: only aggregate numbers are released.
+
+## Paper
+
+- [Paper as Markdown](paper/publish-the-anchors.md): full text, figures given by caption and description
+- [Claims as JSON](paper/claims.json): the main findings with their numbers, units and sections
+- [Paper as PDF](paper/publish-the-anchors.pdf): accessible (PDF/UA-1) and archival (PDF/A-2a)
+- [Abstract](paper/abstract.txt)
+
+## Standard
+
+- [Specification](spec/SPEC.md): Embedding Space Card, anchor corpus, Adapter Manifest, version 0.1
+- [Card schema](spec/embedding-space-card.schema.json)
+- [Manifest schema](spec/adapter-manifest.schema.json)
+- [Anchor package metadata in Croissant 1.0](spec/croissant.json)
+
+## Code and data
+
+- [README](README.md): reproduction steps
+- [Result files](results/): one JSON line per measurement
+- [Anchor corpus and vectors](https://huggingface.co/datasets/egbalwaldmann/embedding-anchors)
+
+## Optional
+
+- [Citation](CITATION.cff)
+- [Companion page](site/index.html): interactive figures

@@ -1,0 +1,15 @@
+{"testbed": "wiki-de", "model": "bge-m3", "limit": 512, "truncated": 0.002, "tokens_median": 78.0}
+{"testbed": "miracl-de", "model": "bge-m3", "limit": 512, "truncated": 0.004333333333333333, "tokens_median": 84.0}
+{"testbed": "archive", "model": "bge-m3", "limit": 2048, "truncated": 0.0, "tokens_median": 381.5}
+{"testbed": "wiki-de", "model": "me5-large", "limit": 512, "truncated": 0.002, "tokens_median": 80.0}
+{"testbed": "miracl-de", "model": "me5-large", "limit": 512, "truncated": 0.004333333333333333, "tokens_median": 86.0}
+{"testbed": "archive", "model": "me5-large", "limit": 512, "truncated": 0.27266666666666667, "tokens_median": 383.5}
+{"testbed": "wiki-de", "model": "arctic-l-v2", "limit": 512, "truncated": 0.002, "tokens_median": 78.0}
+{"testbed": "miracl-de", "model": "arctic-l-v2", "limit": 512, "truncated": 0.004333333333333333, "tokens_median": 84.0}
+{"testbed": "archive", "model": "arctic-l-v2", "limit": 2048, "truncated": 0.0, "tokens_median": 381.5}
+{"testbed": "wiki-de", "model": "qwen3-0.6b", "limit": 512, "truncated": 0.005333333333333333, "tokens_median": 97.0}
+{"testbed": "miracl-de", "model": "qwen3-0.6b", "limit": 512, "truncated": 0.010666666666666666, "tokens_median": 104.0}
+{"testbed": "archive", "model": "qwen3-0.6b", "limit": 2048, "truncated": 0.0, "tokens_median": 493.0}
+{"testbed": "wiki-de", "model": "embeddinggemma-2", "limit": 512, "truncated": 0.0033333333333333335, "tokens_median": 91.0}
+{"testbed": "miracl-de", "model": "embeddinggemma-2", "limit": 512, "truncated": 0.006333333333333333, "tokens_median": 96.0}
+{"testbed": "archive", "model": "embeddinggemma-2", "limit": 2048, "truncated": 0.0, "tokens_median": 452.0}

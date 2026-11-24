@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use the specification, the code or the anchor release, please cite the paper."
+title: "Publish the Anchors: A Minimal Interoperability Standard for Text Embedding Spaces, with a Cross-Vendor German Migration Study"
+type: software
+authors:
+  - family-names: Waldmann
+    given-names: Egbal
+    orcid: "https://orcid.org/0000-0003-2958-5121"
+repository-code: "https://github.com/egbalwaldmann/embedding-anchors"
+keywords:
+  - text embeddings
+  - vector search
+  - model migration
+  - interoperability
+  - retrieval
+  - AI engineering
+  - artificial intelligence
+license: MIT
+preferred-citation:
+  type: unpublished
+  title: "Publish the Anchors: A Minimal Interoperability Standard for Text Embedding Spaces, with a Cross-Vendor German Migration Study"
+  authors:
+    - family-names: Waldmann
+      given-names: Egbal
+      orcid: "https://orcid.org/0000-0003-2958-5121"
+  year: 2026
+  notes: "Preprint"
+  doi: "10.5281/zenodo.24484736"

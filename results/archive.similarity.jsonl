@@ -1,0 +1,15 @@
+{"testbed": "archive", "anchors": "anchors", "a": "bge-m3", "b": "me5-large", "rsa": 0.7886886782519024, "cka": 0.7575346231460571, "knn": 0.5155}
+{"testbed": "archive", "anchors": "anchors", "a": "bge-m3", "b": "arctic-l-v2", "rsa": 0.8679808631508991, "cka": 0.8501594662666321, "knn": 0.5910500000000001}
+{"testbed": "archive", "anchors": "anchors", "a": "bge-m3", "b": "qwen3-0.6b", "rsa": 0.8176708718616361, "cka": 0.7877970337867737, "knn": 0.5487000000000001}
+{"testbed": "archive", "anchors": "anchors", "a": "bge-m3", "b": "embeddinggemma-2", "rsa": 0.8231795911387528, "cka": 0.7877641320228577, "knn": 0.53875}
+{"testbed": "archive", "anchors": "anchors", "a": "bge-m3", "b": "gemini-001", "rsa": 0.7903389496700818, "cka": 0.7466080784797668, "knn": 0.49235}
+{"testbed": "archive", "anchors": "anchors", "a": "me5-large", "b": "arctic-l-v2", "rsa": 0.8310832745390254, "cka": 0.807413637638092, "knn": 0.55}
+{"testbed": "archive", "anchors": "anchors", "a": "me5-large", "b": "qwen3-0.6b", "rsa": 0.7601800763175579, "cka": 0.7405305504798889, "knn": 0.47605000000000003}
+{"testbed": "archive", "anchors": "anchors", "a": "me5-large", "b": "embeddinggemma-2", "rsa": 0.7873540591120691, "cka": 0.7660012245178223, "knn": 0.5117}
+{"testbed": "archive", "anchors": "anchors", "a": "me5-large", "b": "gemini-001", "rsa": 0.8166138615256432, "cka": 0.7544848918914795, "knn": 0.49615}
+{"testbed": "archive", "anchors": "anchors", "a": "arctic-l-v2", "b": "qwen3-0.6b", "rsa": 0.8454591436321123, "cka": 0.8126057386398315, "knn": 0.5507}
+{"testbed": "archive", "anchors": "anchors", "a": "arctic-l-v2", "b": "embeddinggemma-2", "rsa": 0.8440278687003696, "cka": 0.8155823945999146, "knn": 0.569}
+{"testbed": "archive", "anchors": "anchors", "a": "arctic-l-v2", "b": "gemini-001", "rsa": 0.8268841220583302, "cka": 0.7987372279167175, "knn": 0.5360999999999999}
+{"testbed": "archive", "anchors": "anchors", "a": "qwen3-0.6b", "b": "embeddinggemma-2", "rsa": 0.8378377443576248, "cka": 0.8143590688705444, "knn": 0.5370999999999999}
+{"testbed": "archive", "anchors": "anchors", "a": "qwen3-0.6b", "b": "gemini-001", "rsa": 0.7817716432269542, "cka": 0.7609645128250122, "knn": 0.48345000000000005}
+{"testbed": "archive", "anchors": "anchors", "a": "embeddinggemma-2", "b": "gemini-001", "rsa": 0.818401409383978, "cka": 0.8136234879493713, "knn": 0.548}

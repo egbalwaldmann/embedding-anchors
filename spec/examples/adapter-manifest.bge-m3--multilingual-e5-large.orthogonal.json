@@ -1,0 +1,46 @@
+{
+  "spec_version": "0.1",
+  "source_space": "baai/bge-m3@5617a9f6:dense",
+  "target_space": "intfloat/multilingual-e5-large@3d7cfbda",
+  "map": {
+    "type": "orthogonal",
+    "weights_url": "https://huggingface.co/datasets/egbalwaldmann/embedding-anchors/resolve/main/adapters/bge-m3--multilingual-e5-large.orthogonal.npz",
+    "weights_sha256": "f70dce02b04125fb48a9025cd6aba4543aacad0f5d7c09d82ec471bda3bc3f4b",
+    "format": "npz",
+    "centred": true,
+    "output_normalized": true
+  },
+  "fit": {
+    "corpus_id": "anchors-v0.1-de",
+    "corpus_sha256": "1c41c26a3fd454b99f8ed4f894528055997a4ae4fa0b127d569cd09e2b6f08af",
+    "pairs": 20000,
+    "source_role": "document",
+    "target_role": "document",
+    "languages": [
+      "de"
+    ]
+  },
+  "evaluation": [
+    {
+      "benchmark": "Wiki-de (Publish the Anchors, 2026)",
+      "language": "de",
+      "mode": "index-translation",
+      "metric": "nDCG@10",
+      "bridged": 0.9291,
+      "native_target": 0.9438,
+      "native_source": 0.9433
+    },
+    {
+      "benchmark": "Wiki-de (Publish the Anchors, 2026)",
+      "language": "de",
+      "mode": "query-translation",
+      "metric": "nDCG@10",
+      "bridged": 0.9266,
+      "native_target": 0.9438,
+      "native_source": 0.9433
+    }
+  ],
+  "license": "CC-BY-SA-4.0",
+  "created": "2026-11-23",
+  "author": "Egbal Waldmann"
+}

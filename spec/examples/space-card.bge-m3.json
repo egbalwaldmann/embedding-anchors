@@ -1,0 +1,21 @@
+{
+  "spec_version": "0.1",
+  "space_id": "baai/bge-m3@5617a9f6:dense",
+  "model": {
+    "publisher": "BAAI",
+    "name": "bge-m3",
+    "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "license": "MIT",
+    "url": "https://huggingface.co/BAAI/bge-m3"
+  },
+  "dimensions": 1024,
+  "native_dimensions": 1024,
+  "truncation": { "method": "none" },
+  "similarity": "cosine",
+  "normalized": true,
+  "input": {
+    "roles": { "document": {}, "query": {} },
+    "max_tokens": 512,
+    "overflow": "truncate"
+  }
+}

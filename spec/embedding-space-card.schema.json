@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egbalwaldmann/embedding-anchors/spec/embedding-space-card.schema.json",
+  "title": "Embedding Space Card",
+  "description": "Describes one embedding space: everything that must be identical for two vectors to be comparable. Two vectors may be compared directly if and only if their cards have the same space_id.",
+  "type": "object",
+  "required": ["spec_version", "space_id", "model", "dimensions", "similarity", "normalized", "input"],
+  "additionalProperties": false,
+  "properties": {
+    "spec_version": { "const": "0.1" },
+    "space_id": {
+      "type": "string",
+      "description": "Stable identifier of the space, chosen by the publisher: <publisher>/<model>@<revision>[:<variant>]. Any change that makes old and new vectors incomparable requires a new space_id.",
+      "pattern": "^[a-z0-9._-]+/[A-Za-z0-9._-]+@[A-Za-z0-9._-]+(:[A-Za-z0-9._=,-]+)?$"
+    },
+    "model": {
+      "type": "object",
+      "required": ["publisher", "name", "revision"],
+      "additionalProperties": false,
+      "properties": {
+        "publisher": { "type": "string" },
+        "name": { "type": "string" },
+        "revision": { "type": "string", "description": "Version, date or weights hash that pins the encoder." },
+        "weights_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "license": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "dimensions": { "type": "integer", "minimum": 1 },
+    "native_dimensions": { "type": "integer", "minimum": 1 },
+    "truncation": {
+      "type": "object",
+      "description": "How dimensions was reached from native_dimensions.",
+      "required": ["method"],
+      "additionalProperties": false,
+      "properties": {
+        "method": { "enum": ["none", "matryoshka-prefix", "projection"] },
+        "renormalized": { "type": "boolean" }
+      }
+    },
+    "similarity": { "enum": ["cosine", "dot", "euclidean"] },
+    "normalized": { "type": "boolean", "description": "Whether vectors are unit length as published." },
+    "input": {
+      "type": "object",
+      "description": "Everything applied to the text before encoding.",
+      "required": ["roles"],
+      "additionalProperties": false,
+      "properties": {
+        "roles": {
+          "type": "object",
+          "description": "Per role (document, query, ...) the prefix or task type used. Roles of one card share one space.",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "prefix": { "type": "string" },
+              "task_type": { "type": "string" }
+            }
+          }
+        },
+        "max_tokens": { "type": "integer", "minimum": 1 },
+        "overflow": { "enum": ["truncate", "error", "chunk-mean"] }
+      }
+    },
+    "compatible_with": {
+      "type": "array",
+      "description": "Other space_ids whose vectors the publisher guarantees to be directly comparable (compatibility by training).",
+      "items": { "type": "string" }
+    },
+    "anchors": {
+      "type": "array",
+      "description": "Published embeddings of public anchor corpora in this space.",
+      "items": {
+        "type": "object",
+        "required": ["corpus_id", "corpus_sha256", "role", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "corpus_id": { "type": "string" },
+          "corpus_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "role": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "format": { "enum": ["npy", "parquet", "safetensors"] },
+          "vectors_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    }
+  }
+}
