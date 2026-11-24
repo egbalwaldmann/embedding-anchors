@@ -2,7 +2,7 @@
 
 Egbal Waldmann ([ORCID](https://orcid.org/0000-0003-2958-5121)), AI Engineer, Potsdam, Germany. Preprint, November 2026.
 
-DOI: [10.5281/zenodo.24484736](https://doi.org/10.5281/zenodo.24484736) · Code and specification: https://github.com/egbalwaldmann/embedding-anchors · Anchor corpus: https://huggingface.co/datasets/egbalwaldmann/embedding-anchors
+DOI: [10.5281/zenodo.24484736](https://doi.org/10.5281/zenodo.24484736) · Code and specification: https://github.com/egbalwaldmann/embedding-anchors · Anchor corpus: https://huggingface.co/datasets/egbalwaldmann/embedding-anchors · Interactive figures: https://anchors.egbalwaldmann.com
 
 This is a text version of the PDF, made for screen readers, search and language models. Figures are given by their captions and descriptions; numbers and wording are those of the PDF.
 
@@ -617,7 +617,7 @@ How well a given index translates can only be found out with paired vectors. An 
 
 ## Code and data availability
 
-The specification with both JSON Schemas, the code of all experiments and the result files from which every result number, table and figure in this paper is generated are available at <https://github.com/egbalwaldmann/embedding-anchors>. A first anchor corpus (20,000 German and 20,000 English Wikipedia passages), its vectors in the document role for the five open models, one Embedding Space Card per space and one adapter with its manifest are available at <https://huggingface.co/datasets/egbalwaldmann/embedding-anchors>, with a mirror at <https://www.kaggle.com/datasets/egbalwaldmann/embedding-anchors>. This version of the paper is archived together with the code and the result files under the DOI [10.5281/zenodo.24484736](https://doi.org/10.5281/zenodo.24484736). The Archive testbed is private; none of its texts or vectors are released.
+The specification with both JSON Schemas, the code of all experiments and the result files from which every result number, table and figure in this paper is generated are available at <https://github.com/egbalwaldmann/embedding-anchors>. A first anchor corpus (20,000 German and 20,000 English Wikipedia passages), its vectors in the document role for the five open models, one Embedding Space Card per space and one adapter with its manifest are available at <https://huggingface.co/datasets/egbalwaldmann/embedding-anchors>, with a mirror at <https://www.kaggle.com/datasets/egbalwaldmann/embedding-anchors>. A companion page at <https://anchors.egbalwaldmann.com> shows the results interactively, pair by pair; it is built from the same result files and is part of the repository. This version of the paper is archived together with the code and the result files under the DOI [10.5281/zenodo.24484736](https://doi.org/10.5281/zenodo.24484736). The Archive testbed is private; none of its texts or vectors are released.
 
 ## Funding and competing interests
 

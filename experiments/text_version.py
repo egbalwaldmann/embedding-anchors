@@ -59,7 +59,7 @@ def markdown() -> str:
         "",
         f"{AUTHOR} ([ORCID]({ORCID})), AI Engineer, Potsdam, Germany. Preprint, November 2026.",
         "",
-        f"DOI: [{DOI}](https://doi.org/{DOI}) · Code and specification: {CODE} · Anchor corpus: {ANCHORS}",
+        f"DOI: [{DOI}](https://doi.org/{DOI}) · Code and specification: {CODE} · Anchor corpus: {ANCHORS} · Interactive figures: https://anchors.egbalwaldmann.com",
         "",
         "This is a text version of the PDF, made for screen readers, search and language models. "
         "Figures are given by their captions and descriptions; numbers and wording are those of the PDF.",

@@ -191,7 +191,7 @@
       v(2mm)
       block(width: 100%, breakable: false, stroke: (left: 2.4pt + accent), inset: (left: 5mm, y: 1.5mm), {
         set par(justify: false, leading: 0.62em)
-        text(12.5pt, style: "italic", lead)
+        text(11.5pt, style: "italic", lead)
       })
     }
   })
