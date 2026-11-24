@@ -22,6 +22,10 @@ jobs:
         run: uv run --no-project --python 3.12 --with numpy==2.5.5 --with scipy==1.18.1 --with matplotlib==3.11.2 python experiments/report.py
       - name: The numbers in the paper match the result files
         run: git diff --exit-code paper/generated.typ
+      - name: The data of the companion page match the result files
+        run: |
+          uv run --no-project --python 3.12 --with numpy==2.5.5 --with scipy==1.18.1 --with matplotlib==3.11.2 python experiments/site_data.py
+          git diff --exit-code site/data.json
       - name: Figures unchanged
         run: git diff --stat --exit-code paper/fig || echo "::warning::figures differ from the committed ones (fonts or library versions)"
       - name: PDF, accessible (PDF/UA-1) and archival (PDF/A-2a)
