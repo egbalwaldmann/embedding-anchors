@@ -57,7 +57,7 @@ def markdown() -> str:
     head = "\n".join([
         f"# {TITLE}",
         "",
-        f"{AUTHOR} ([ORCID]({ORCID})), AI Engineer, Potsdam, Germany. Preprint, November 2026.",
+        f"{AUTHOR} ([ORCID]({ORCID}), [LinkedIn](https://www.linkedin.com/in/egbalwaldmann)), AI Engineer, Potsdam, Germany. Preprint, November 2026.",
         "",
         f"DOI: [{DOI}](https://doi.org/{DOI}) · Code and specification: {CODE} · Anchor corpus: {ANCHORS} · Interactive figures: https://anchors.egbalwaldmann.com",
         "",

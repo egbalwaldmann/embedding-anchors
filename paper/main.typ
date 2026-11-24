@@ -17,7 +17,7 @@
   subtitle: "A Minimal Interoperability Standard for Text Embedding Spaces, with a Cross-Vendor German Migration Study",
   short-title: "Publish the Anchors",
   authors: (
-    (name: "Egbal Waldmann", email: "egbal@waldmann.dev", affiliation: "AI Engineer, Potsdam, Germany", orcid: "0000-0003-2958-5121"),
+    (name: "Egbal Waldmann", email: "egbal@waldmann.dev", affiliation: "AI Engineer, Potsdam, Germany", orcid: "0000-0003-2958-5121", linkedin: "egbalwaldmann"),
   ),
   note: "Preprint",
   date: "November 2026",

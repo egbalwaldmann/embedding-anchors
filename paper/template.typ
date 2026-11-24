@@ -169,7 +169,13 @@
       a.affiliation
       linebreak()
       link("mailto:" + a.email, raw(a.email))
-      if "orcid" in a { linebreak(); text(9pt, link("https://orcid.org/" + a.orcid)[ORCID #a.orcid]) }
+      if "orcid" in a or "linkedin" in a {
+        linebreak()
+        let parts = ()
+        if "orcid" in a { parts.push(link("https://orcid.org/" + a.orcid)[ORCID #a.orcid]) }
+        if "linkedin" in a { parts.push(link("https://www.linkedin.com/in/" + a.linkedin)[LinkedIn]) }
+        text(9pt, parts.join[ · ])
+      }
     }),
   ))
   v(3mm)

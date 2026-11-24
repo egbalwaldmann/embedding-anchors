@@ -1,6 +1,6 @@
 # Publish the Anchors: A Minimal Interoperability Standard for Text Embedding Spaces, with a Cross-Vendor German Migration Study
 
-Egbal Waldmann ([ORCID](https://orcid.org/0000-0003-2958-5121)), AI Engineer, Potsdam, Germany. Preprint, November 2026.
+Egbal Waldmann ([ORCID](https://orcid.org/0000-0003-2958-5121), [LinkedIn](https://www.linkedin.com/in/egbalwaldmann)), AI Engineer, Potsdam, Germany. Preprint, November 2026.
 
 DOI: [10.5281/zenodo.24484736](https://doi.org/10.5281/zenodo.24484736) · Code and specification: https://github.com/egbalwaldmann/embedding-anchors · Anchor corpus: https://huggingface.co/datasets/egbalwaldmann/embedding-anchors · Interactive figures: https://anchors.egbalwaldmann.com
 
