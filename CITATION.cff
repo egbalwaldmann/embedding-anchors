@@ -7,6 +7,13 @@ authors:
     given-names: Egbal
     orcid: "https://orcid.org/0000-0003-2958-5121"
 repository-code: "https://github.com/egbalwaldmann/embedding-anchors"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24484736"
+    description: "The paper and the release archive on Zenodo"
+  - type: swh
+    value: "swh:1:snp:13a23ea46d6aca44c347e43fa3d3eed5ec5e171f"
+    description: "Archived snapshot of this repository at Software Heritage"
 keywords:
   - text embeddings
   - vector search

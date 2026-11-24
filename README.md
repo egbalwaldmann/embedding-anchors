@@ -135,3 +135,5 @@ Gemessen an zwei deutschen Wikipedia-Testbetten und einer privaten deutschen Dok
   doi    = {10.5281/zenodo.24484736}
 }
 ```
+
+The repository is archived at Software Heritage as `swh:1:snp:13a23ea46d6aca44c347e43fa3d3eed5ec5e171f` ([browse](https://archive.softwareheritage.org/swh:1:snp:13a23ea46d6aca44c347e43fa3d3eed5ec5e171f)).
